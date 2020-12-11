@@ -6,7 +6,7 @@ You'll need first an installation of the go compiler (you can find it [here](htt
 
 Then run a command prompt and type
 ```powershell
-▶ go get -u github.com/keyboard-slayer/teswe-vm-enforcer
+▶ go get -u github.com/keyboard-slayer/testwe-vm-enforcer
 ```
 
 ## How to use it ?
