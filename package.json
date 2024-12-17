@@ -1,0 +1,23 @@
+{
+  "name": "testwe-vm-enforcer",
+  "version": "1.0.0",
+  "description": "Bypass Testwe's VM checks",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keyboard-slayer/testwe-vm-enforcer.git"
+  },
+  "author": "Keyb",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/keyboard-slayer/testwe-vm-enforcer/issues"
+  },
+  "homepage": "https://github.com/keyboard-slayer/testwe-vm-enforcer#readme",
+  "dependencies": {
+    "@electron/asar": "^3.2.17",
+    "windows-shortcuts": "^0.1.6"
+  }
+}

@@ -1,19 +1,27 @@
 <h1 align="center">✅ TestWE VM enforcer</h1>
 <p align="center">Because running Windows natively is unquestionable</p>
 
-## Install
-You'll need first an installation of the go compiler (you can find it [here](https://golang.org/)), you'll also need a git client (that you can find [here](https://git-scm.com/downloads))
+# Installation and usage
+1. Download the latest release from the [releases page](https://github.com/keyboard-slayer/testwe-vm-enforcer/releases) and select `Source code (zip)`
+2. Extract the archive to your desired location (for example, your desktop)
+3. Install node.js from the [official website](https://nodejs.org/)
+4. Double click on `run.bat`
+5. Enjoy!
 
-Then run a command prompt and type
-```powershell
-▶ go get -u github.com/keyboard-slayer/testwe-vm-enforcer
-```
+# Q&A
+## Why did you replace the go version with node.js?
+It was brought to my attention that the go version was not working as intended,
+after some investigation I discovered that TestWE was now written in javascript with
+the electron framework. This mean that I have to use [Electron's ASAR](https://github.com/electron/asar) to extract the files.
 
-## How to use it ?
-First verify that you have installed TestWe on your machine than simply run the command `testwe-vm-enforcer`
+## Why did you write this patcher in the first place?
+Because of the infamous COVID-19 pandemic, we had to take exams from home. The software used for
+my school's exams was TestWE, which is a Windows and macOS only software. As a firm GNU/Linux user,
+I had to use a VM to run the software. However, the software was detecting that I was running it
+in a VM and refused to start. The first patcher written in go was made for this purpose, by modifying
+some regex present in the raw binary.
 
-## Why did I do that ?
-In 2020 because of the Covid pendamic my college used a remote examination software called Testwe that only accepte Windows and MacOS. Me as a GNU/Linux user don't really like Microsoft Windows. And this wonderful piece of software doesn't allows us to run it inside of a virtual machine so I've decided to see how can I bypass that without breaking the EULA (for instance I couldn't reverse engineer the software)
-
-## How did I do that ?
-As I've said previously I can't reverse engineer the software, it was a lot of watching the raw binary with my bare eyes and pray for the best but it didn't take too long. While looking at the raw binary I saw something that looked like a regex and there was the name of a lot of hypervisors like Qemu and HyperV. So I've tried to change one letter in each one of theme and BINGO ! It worked ! This software just do that process automaticly (Yup super easy and didn't required a decompiler or a disassembler :wink: )
+## What's the difference between the old patcher and this one?
+Here is a list of differences between the old patcher and this one:
+- The old patcher was checking for a specific installation path, this one can automatically find the installation path by using the shortcut on the desktop
+- The old patcher was checking for a specific regex in the binary, this one extract the `app.asar` file and modify the `main.js` file and removes the VM detection code
